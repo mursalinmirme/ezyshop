@@ -1,3 +1,7 @@
+<?php
+include "assets/php/function.php";
+// include "../assets/php/dbconnect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,34 +35,33 @@
                 <table class="table table-borderd table-striped">
                   <thead>
                     <tr>
-                      <th>Id</th>
-                      <th>Name</th>
-                      <th>Image</th>
-                      <th>Status</th>
-                      <th>Edit</th>
-                      <th>Delete</th>
+                      <th class="text-center">Id</th>
+                      <th class="text-center">Name</th>
+                      <th class="text-center">Image</th>
+                      <th class="text-center">Status</th>
+                      <th class="text-center">Edit</th>
+                      <th class="text-center">Delete</th>
                     </tr>
                   </thead>
                   <tbody>
-                  
-                    <tr>
-                      <td>1</td>
-                      <td>Mobile</td>
-                      <td><img src="../download photos/oneplus.jpg" width="50px" height="50px" alt=""></td>
-                      <td>Visible</td>
-                      <td><a href=""><button class="bg-primary text-light px-3 py-1">Edit</button></a></td>
-                      <td><a href=""><button class="bg-danger text-light px-3 py-1">Delete</button></a></td>
+                  <?php $category = getallCate("categories");
+                  if(mysqli_num_rows($category) > 0){
+                    while($row = mysqli_fetch_assoc($category)){ ?>
+                      <tr class="redesigncate">
+                      <td class="text-center pt-3"><?php echo $row['cate_id'] ?></td>
+                      <td class="text-center pt-3"><?php echo $row['categories_name'] ?></td>
+                      <td class="text-center"><img src="../upload/<?php echo $row['categories_image']?>" width="50px" height="50px" alt=""></td>
+                      <td class="text-center pt-3"><?php echo $row['categories_status']?"visible":"hidden" ?></td>
+                      <td class="text-center"><a href=""><button class="bg-primary text-light px-3 py-1 border-0 rounded-1 mt-2">Edit</button></a></td>
+                      <td class="text-center"><a href=""><button class="bg-danger text-light px-3 py-1 border-0 rounded-1 mt-2">Delete</button></a></td>
 
                     </tr>
+                  <?php  }
+                  }else{
+                    echo "no record found";
+                  }
+                  ?>
 
-                    <tr>
-                      <td>1</td>
-                      <td>Mobile</td>
-                      <td><img src="../download photos/oneplus.jpg" width="50px" height="50px" alt=""></td>
-                      <td>Visible</td>
-                      <td><a href=""><button class="bg-primary text-light px-3 py-1">Edit</button></a></td>
-                      <td><a href=""><button class="bg-danger text-light px-3 py-1">Delete</button></a></td>
-                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -68,7 +71,7 @@
         </div>
       </div>
       
-    </div>
+    </div><!-- body-pd -->
     <!-- javascript files are here -->
     <script src="assets/javascript/bootstrap.bundle.min.js"></script>
     <script src="assets/javascript/bootstrap.min.js"></script>

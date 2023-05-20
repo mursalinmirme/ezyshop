@@ -4,6 +4,9 @@ input{
 textarea{
     border: 1px solid rgb(194, 191, 191) !important;
 }
+.cate_selector{
+    border: 1px solid rgb(194, 191, 191) !important;
+}
 .status_check{
     height: 22px;
     width: 22px;
