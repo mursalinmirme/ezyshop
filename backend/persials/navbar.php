@@ -44,7 +44,7 @@ $activeNavname = substr($_SERVER['SCRIPT_NAME'],strrpos($_SERVER['SCRIPT_NAME'],
               </a>
             </div>
           </div>
-          <a href="#" class="nav_link <?= $activeNavname == '#'?'active text-primary':'' ?>">
+          <a href="../logout.php" class="nav_link <?= $activeNavname == '#'?'active text-primary':'' ?>">
             <i class="bx bx-log-out nav_icon"></i>
             <span class="nav_name">SignOut</span>
           </a>
